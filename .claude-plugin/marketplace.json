@@ -1,0 +1,14 @@
+{
+  "name": "bdc-mobile-ui",
+  "owner": { "name": "BDC" },
+  "plugins": [
+    {
+      "name": "mobile-ui",
+      "source": "./plugins/mobile-ui",
+      "description": "Design, audit, and fix production-quality mobile UI for iOS, Android, Flutter, React Native, SwiftUI, and Jetpack Compose — with first-class Arabic/RTL support and an anti-AI-look pass.",
+      "version": "1.0.0",
+      "category": "design",
+      "keywords": ["mobile", "ui", "design-system", "accessibility", "rtl", "arabic"]
+    }
+  ]
+}

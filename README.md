@@ -21,9 +21,11 @@ cd mobile-ui-skills
 ```
 
 ```text
-اقرأ plugins/mobile-ui/skills/audit/SKILL.md والمراجع المشتركة التي يوجّه إليها واللازمة لنطاق المهمة، ثم راجع الـ UI في src/screens وsrc/components.
+افتح مشروع التطبيق المستهدف كـ working directory في الـ agent. اقرأ /path/to/mobile-ui-skills/plugins/mobile-ui/skills/audit/SKILL.md والمراجع المشتركة التي يوجّه إليها واللازمة لنطاق المهمة، ثم راجع ملفات التطبيق في src/screens وsrc/components (المسارات هنا نسبية لمشروع التطبيق، مش checkout المهارات).
 لا تعدّل أي ملف. رتّب النتائج حسب Blocker ثم High ثم Medium ثم Polish، مع location وevidence وproblem وrecommended correction لكل finding.
 ```
+
+بدّل `audit/SKILL.md` بـ`create/SKILL.md` أو `fix/SKILL.md` حسب نوع المهمة.
 
 داخل هذه الملفات، `$ARGUMENTS` معناها نص المهمة الذي تضعه في prompt. أسماء frontmatter مثل `disable-model-invocation` و`disallowed-tools` مخصصة لتكامل Claude Code؛ ولو الـ host بيفسّر `disallowed-tools` ممكن يزيل أدوات التعديل أثناء الـ audit. تعليمات الـ audit وحدها لا تعزل كل أدوات الـ agent ولا تضمن read-only؛ استخدم صلاحيات host للقراءة فقط عندما تحتاج enforcement فعلي.
 
@@ -37,7 +39,7 @@ cd mobile-ui-skills
 | `/mobile-ui:audit` | التصميم موجود وعايز **تقرير** بالمشاكل من غير ما يتلمس الكود |
 | `/mobile-ui:fix` | التصميم موجود وعايز Claude **يعدّل الكود فعلاً** ويختبره |
 
-`/mobile-ui:audit` في تكامل Claude Code يطلب read-only، وmanifest التكامل يمنع `Edit` و`Write` و`NotebookEdit` عندما يطبّقها الـ host. ده مش sandbox عام؛ خارج host يطبّق القيود لازم تستخدم صلاحيات قراءة فقط.
+`/mobile-ui:audit` في تكامل Claude Code يطلب read-only، ولو الـ host بيفسّر `disallowed-tools` في frontmatter ملف الاسكيل ممكن يزيل `Edit` و`Write` و`NotebookEdit`. ده مش sandbox عام؛ خارج host يطبّق القيود لازم تستخدم صلاحيات قراءة فقط.
 
 ---
 

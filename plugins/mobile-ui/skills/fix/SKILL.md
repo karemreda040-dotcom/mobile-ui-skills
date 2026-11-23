@@ -81,7 +81,7 @@ Remove these generic AI patterns while keeping real brand personality (see `ANTI
 
 ### 4. Validate
 
-- Run the project's formatter, linter, type checker, tests, and build.
+- Inspect the configured package scripts, `pubspec`, Gradle, or Xcode setup first; run only the applicable configured formatter, linter, type checker, tests, and safe build or preview commands. Report unavailable commands and their actual results.
 - Run a safe preview or render verification if the project supports one.
 - Iterate on failures until checks pass, or report the exact external blocker.
 - Never claim visual verification you did not perform.

@@ -38,13 +38,11 @@ Prompt:
 
 Expected:
 
-- Reorganizes information before restyling.
-- Removes unnecessary cards and gradients.
-- Reduces shadows and radius variety.
-- Establishes one primary action and clearer sections.
-- Reuses existing tokens/components.
+- Reports whether information hierarchy needs reorganization before restyling.
+- Identifies unnecessary cards, gradients, shadows, and radius variety with evidence.
+- Recommends a clearer primary action, sections, and reuse of existing tokens/components.
 - Does not invent fake productivity metrics.
-- Validates accessibility and states.
+- Reviews accessibility and states without editing files.
 
 ## Scenario 3: iOS settings detail screen
 

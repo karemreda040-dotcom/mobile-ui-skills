@@ -1,6 +1,6 @@
-# Mobile UI Skills — Codex, Claude Code & AI Agents
+# Mobile UI Skills — Claude Code & Codex
 
-ثلاث مهارات بتخلّي واجهات الموبايل مقصودة ومتسقة ومتاحة للجميع (accessible) — بدل الشكل الجنريك اللي بيطلع من الـ AI. القواعد والمراجع قابلة لإعادة الاستخدام مع Codex وClaude Code وأي agent يقدر يقرأ ملفات `SKILL.md` والمراجع المرتبطة بها. التثبيت التلقائي وأوامر الـ slash الموجودة هنا مخصصة لـ Claude Code.
+ثلاث مهارات بتخلّي واجهات الموبايل مقصودة ومتسقة ومتاحة للجميع (accessible) — بدل الشكل الجنريك اللي بيطلع من الـ AI. بتشتغل مباشرة مع Claude Code وCodex، والمصدر واحد عشان القواعد تفضل متسقة.
 
 بتدعم **iOS, Android, Flutter, React Native, SwiftUI, UIKit, Jetpack Compose**، وفيها قواعد كاملة للعربي والـ RTL.
 
@@ -11,23 +11,38 @@
 | البيئة | طريقة الاستخدام الفعلية |
 |---|---|
 | Claude Code | Plugin تلقائي بأوامر `/mobile-ui:create` و`/mobile-ui:audit` و`/mobile-ui:fix`، أو التثبيت اليدوي الموضح أدناه. |
-| Codex وأي agent آخر | مفيش auto-discovery أو slash commands مضمونة. اقرأ ملف `SKILL.md` المطلوب صراحةً، واقرأ المراجع التي يوجّه إليها واللازمة لنطاق المهمة قبل التنفيذ. |
+| Codex | Native skills بأسماء `$mobile-ui-create` و`$mobile-ui-audit` و`$mobile-ui-fix` بعد التثبيت. الـ implicit invocation شغال افتراضياً كمان. |
+| أي agent آخر | اقرأ ملف `SKILL.md` المطلوب صراحةً والمراجع التي يوجّه إليها قبل التنفيذ. |
 
-للاستخدام اليدوي مع Codex أو agent آخر:
+## التثبيت والاستخدام في Codex
+
+Codex بيدوّر على user skills في `~/.agents/skills`. ثبّت النسخة الـ native كده:
 
 ```bash
 git clone https://github.com/karemreda040-dotcom/mobile-ui-skills.git
 cd mobile-ui-skills
+bash install.sh --agent codex
 ```
+
+المطلوب: Git وBash، وPython 3 لتصدير نسخة Codex. ولتثبيت البيئتين مرة واحدة: `bash install.sh --agent both`.
+
+بعدها استخدمها صراحةً في Codex:
 
 ```text
-افتح مشروع التطبيق المستهدف كـ working directory في الـ agent. اقرأ /path/to/mobile-ui-skills/plugins/mobile-ui/skills/audit/SKILL.md والمراجع المشتركة التي يوجّه إليها واللازمة لنطاق المهمة، ثم راجع ملفات التطبيق في src/screens وsrc/components (المسارات هنا نسبية لمشروع التطبيق، مش checkout المهارات).
-لا تعدّل أي ملف. رتّب النتائج حسب Blocker ثم High ثم Medium ثم Polish، مع location وevidence وproblem وrecommended correction لكل finding.
+$mobile-ui-audit راجع واجهة الموبايل في src/screens وsrc/components من غير تعديل.
+$mobile-ui-fix صلّح مشاكل الـ Blocker والـ High في شاشة Profile فقط، مع الحفاظ على logic وroutes وAPIs.
+$mobile-ui-create ابنِ شاشة login عربية RTL ومتوافقة مع iOS وAndroid.
 ```
 
-بدّل `audit/SKILL.md` بـ`create/SKILL.md` أو `fix/SKILL.md` حسب نوع المهمة.
+الـ audit تعليمات read-only، لكن صلاحيات الـ host هي اللي بتنفّذ العزل فعلياً. استخدم صلاحيات قراءة فقط لو محتاج enforcement. للإزالة: `bash uninstall.sh --agent codex`. لو المهارات مش ظاهرة، أعد تشغيل Codex أو افتح `/skills` للتحقق منها.
 
-داخل هذه الملفات، `$ARGUMENTS` معناها نص المهمة الذي تضعه في prompt. أسماء frontmatter مثل `disable-model-invocation` و`disallowed-tools` مخصصة لتكامل Claude Code؛ ولو الـ host بيفسّر `disallowed-tools` ممكن يزيل أدوات التعديل أثناء الـ audit. تعليمات الـ audit وحدها لا تعزل كل أدوات الـ agent ولا تضمن read-only؛ استخدم صلاحيات host للقراءة فقط عندما تحتاج enforcement فعلي.
+لو عايز تثبّت skill جوه مشروع أو تختبرها من غير ما تلمس الـ user directory، مرّر destination مخصص:
+
+```bash
+bash install.sh --agent codex --dest /path/to/your-app/.agents/skills
+```
+
+ده هو مسار الـ repository skills في Codex. شغّل Codex بعد كده من working directory بتاع التطبيق، مش من checkout المهارات. وللإزالة من نفس المسار: `bash uninstall.sh --agent codex --dest /path/to/your-app/.agents/skills`. التفاصيل الرسمية: [Build skills for Codex](https://learn.chatgpt.com/docs/build-skills).
 
 ---
 

@@ -4,7 +4,9 @@
 import json
 import re
 import sys
+import tempfile
 from pathlib import Path
+import importlib.util
 
 ROOT = Path(__file__).resolve().parent.parent
 PLUGIN = ROOT / "plugins" / "mobile-ui"
@@ -132,6 +134,43 @@ for skill in VISIBLE_SKILLS:
 for script in ("install.sh", "uninstall.sh"):
     if not (ROOT / script).exists():
         errors.append(f"missing {script}")
+
+# --- native Codex export -----------------------------------------------------
+exporter_path = ROOT / "scripts" / "export_codex_skills.py"
+if not exporter_path.exists():
+    errors.append("missing scripts/export_codex_skills.py")
+else:
+    spec = importlib.util.spec_from_file_location("export_codex_skills", exporter_path)
+    exporter = importlib.util.module_from_spec(spec)
+    try:
+        assert spec.loader is not None
+        spec.loader.exec_module(exporter)
+        with tempfile.TemporaryDirectory(prefix="mobile-ui-codex-export-") as temp:
+            exported = Path(temp)
+            exporter.export(exported)
+            for skill in VISIBLE_SKILLS:
+                name = f"mobile-ui-{skill}"
+                skill_dir = exported / name
+                skill_file = skill_dir / "SKILL.md"
+                if not skill_file.exists():
+                    errors.append(f"Codex export: missing {name}/SKILL.md")
+                    continue
+                block, body = split_frontmatter(skill_file.read_text(), f"Codex export {name}/SKILL.md")
+                fm = parse_scalars(block or "")
+                if set(fm) != {"name", "description"} or fm.get("name") != name:
+                    errors.append(f"Codex export: {name} must have only name and description frontmatter")
+                if "$ARGUMENTS" in body or "/mobile-ui:" in body:
+                    errors.append(f"Codex export: {name} contains an unresolved host-specific invocation")
+                if skill == "audit" and ("Claude Code" in body or "tools are removed" in body):
+                    errors.append(f"Codex export: audit contains a Claude-only enforcement claim")
+                for target in re.findall(r"references/([A-Za-z0-9._-]+)", body):
+                    if not (skill_dir / "references" / target).exists():
+                        errors.append(f"Codex export: {name} has broken reference {target}")
+                metadata = skill_dir / "agents" / "openai.yaml"
+                if not metadata.exists() or "allow_implicit_invocation: true" not in metadata.read_text():
+                    errors.append(f"Codex export: {name} is missing implicit-invocation metadata")
+    except (OSError, ValueError, ImportError) as exc:
+        errors.append(f"Codex export failed: {exc}")
 
 # --- report ------------------------------------------------------------------
 for w in warnings:

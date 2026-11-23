@@ -14,7 +14,7 @@ Inspect the requested mobile UI and return a precise, prioritized, evidence-base
 
 ## Read-only rule
 
-The `Edit`, `Write`, and `NotebookEdit` tools are removed for this skill's lifetime. In addition:
+Claude Code hosts may honor this skill's `disallowed-tools` frontmatter. In every environment, treat this workflow as read-only and use host read-only permissions when they are available. In addition:
 
 - Do not run any shell command that mutates source files, dependencies, generated files, Git state, or configuration.
 - Read-only shell inspection (`ls`, `grep`, `cat`, `git diff`, `git log`) is allowed.
@@ -68,6 +68,8 @@ Check, at minimum:
 Order findings by severity: **Blocker → High → Medium → Polish.**
 
 Accessibility failures that block use are Blocker or High — never Polish.
+
+Only report observed defects as confirmed findings. Before claiming missing safe-area handling, navigation ownership, or asynchronous states, inspect the relevant parent, navigator, and caller code. If that evidence is unavailable, list it separately as an **Unverified question** with the evidence needed; do not assign it a severity or prescribe it as a confirmed fix. Consolidate overlapping symptoms into the one finding that identifies the shared cause.
 
 Every finding must have this exact shape:
 

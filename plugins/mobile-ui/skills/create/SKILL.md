@@ -63,7 +63,7 @@ If there is no codebase yet, produce implementation-ready specs — component st
 ### 5. Validate
 
 - Check hierarchy, alignment, spacing rhythm, typography, contrast, touch targets, states, RTL, text scaling, keyboard behavior, and small-screen overflow.
-- Run the project's formatter, linter, type checker, tests, and the nearest safe build or preview command.
+- Inspect the configured package scripts, `pubspec`, Gradle, or Xcode setup first; run only the applicable configured formatter, linter, type checker, tests, and safe build or preview commands. Report unavailable commands and their actual results.
 - When the app can actually be rendered, inspect the real screen or a screenshot and iterate. Never claim visual verification you did not perform.
 
 ### 6. Refine

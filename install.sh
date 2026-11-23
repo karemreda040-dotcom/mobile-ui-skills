@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Manual installer — copies the Mobile UI skills into ~/.claude/skills/
-# Prefer the plugin route instead (see README): /plugin marketplace add karemreda040-dotcom/mobile-ui
+# Prefer the plugin route instead (see README): /plugin marketplace add karemreda040-dotcom/mobile-ui-skills
 set -euo pipefail
 
 SRC="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/plugins/mobile-ui/skills"

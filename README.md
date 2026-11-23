@@ -1,12 +1,35 @@
-# Mobile UI — Claude Code Plugin
+# Mobile UI Skills — Codex, Claude Code & AI Agents
 
-ثلاث أوامر لـ Claude Code بتخلّي واجهات الموبايل مقصودة ومتسقة ومتاحة للجميع (accessible) — بدل الشكل الجنريك اللي بيطلع من الـ AI.
+ثلاث مهارات بتخلّي واجهات الموبايل مقصودة ومتسقة ومتاحة للجميع (accessible) — بدل الشكل الجنريك اللي بيطلع من الـ AI. القواعد والمراجع قابلة لإعادة الاستخدام مع Codex وClaude Code وأي agent يقدر يقرأ ملفات `SKILL.md` والمراجع المرتبطة بها. التثبيت التلقائي وأوامر الـ slash الموجودة هنا مخصصة لـ Claude Code.
 
 بتدعم **iOS, Android, Flutter, React Native, SwiftUI, UIKit, Jetpack Compose**، وفيها قواعد كاملة للعربي والـ RTL.
 
 ---
 
-## الأوامر الثلاثة
+## التوافق مع الـ agents
+
+| البيئة | طريقة الاستخدام الفعلية |
+|---|---|
+| Claude Code | Plugin تلقائي بأوامر `/mobile-ui:create` و`/mobile-ui:audit` و`/mobile-ui:fix`، أو التثبيت اليدوي الموضح أدناه. |
+| Codex وأي agent آخر | مفيش auto-discovery أو slash commands مضمونة. اقرأ ملف `SKILL.md` المطلوب صراحةً، واقرأ المراجع التي يوجّه إليها واللازمة لنطاق المهمة قبل التنفيذ. |
+
+للاستخدام اليدوي مع Codex أو agent آخر:
+
+```bash
+git clone https://github.com/karemreda040-dotcom/mobile-ui-skills.git
+cd mobile-ui-skills
+```
+
+```text
+اقرأ plugins/mobile-ui/skills/audit/SKILL.md والمراجع المشتركة التي يوجّه إليها واللازمة لنطاق المهمة، ثم راجع الـ UI في src/screens وsrc/components.
+لا تعدّل أي ملف. رتّب النتائج حسب Blocker ثم High ثم Medium ثم Polish، مع location وevidence وproblem وrecommended correction لكل finding.
+```
+
+داخل هذه الملفات، `$ARGUMENTS` معناها نص المهمة الذي تضعه في prompt. أسماء frontmatter مثل `disable-model-invocation` و`disallowed-tools` مخصصة لتكامل Claude Code؛ ولو الـ host بيفسّر `disallowed-tools` ممكن يزيل أدوات التعديل أثناء الـ audit. تعليمات الـ audit وحدها لا تعزل كل أدوات الـ agent ولا تضمن read-only؛ استخدم صلاحيات host للقراءة فقط عندما تحتاج enforcement فعلي.
+
+---
+
+## الأوامر الثلاثة في Claude Code
 
 | الأمر | إمتى تستخدمه |
 |---|---|
@@ -14,18 +37,18 @@
 | `/mobile-ui:audit` | التصميم موجود وعايز **تقرير** بالمشاكل من غير ما يتلمس الكود |
 | `/mobile-ui:fix` | التصميم موجود وعايز Claude **يعدّل الكود فعلاً** ويختبره |
 
-`/mobile-ui:audit` **read-only بالإجبار** — أدوات `Edit` و`Write` و`NotebookEdit` مشيلة من إيد Claude طول ما الأمر شغال، مش مجرد تعليمات في النص.
+`/mobile-ui:audit` في تكامل Claude Code يطلب read-only، وmanifest التكامل يمنع `Edit` و`Write` و`NotebookEdit` عندما يطبّقها الـ host. ده مش sandbox عام؛ خارج host يطبّق القيود لازم تستخدم صلاحيات قراءة فقط.
 
 ---
 
-## التثبيت
+## التثبيت في Claude Code
 
 ### الطريقة المفضّلة — Plugin (للتيم)
 
 جوه Claude Code:
 
 ```
-/plugin marketplace add karemreda040-dotcom/mobile-ui
+/plugin marketplace add karemreda040-dotcom/mobile-ui-skills
 /plugin install mobile-ui@bdc-mobile-ui
 ```
 
@@ -35,13 +58,13 @@
 /plugin marketplace update bdc-mobile-ui
 ```
 
-### الطريقة اليدوية — نسخ في `~/.claude/skills/`
+### الطريقة اليدوية لـ Claude Code — نسخ في `~/.claude/skills/`
 
 لو حد مش عايز يستخدم نظام الـ plugins:
 
 ```bash
-git clone https://github.com/karemreda040-dotcom/mobile-ui.git
-cd mobile-ui
+git clone https://github.com/karemreda040-dotcom/mobile-ui-skills.git
+cd mobile-ui-skills
 bash install.sh
 ```
 
@@ -53,7 +76,7 @@ bash install.sh
 
 ---
 
-## إزاي تستخدمها
+## إزاي تستخدمها في Claude Code
 
 ### ١. عندك تطبيق معمول بالـ AI وشكله وحش
 
@@ -126,7 +149,7 @@ git switch -c ui-cleanup
 
 ---
 
-## حدّد الـ scope — دي أهم نصيحة
+## حدّد الـ scope — أمثلة Claude Code
 
 لو قلت "ظبط الـ UI" بس، Claude ممكن يغيّر أكتر من اللازم. الصيغة اللي بتشتغل:
 
@@ -199,7 +222,7 @@ plugins/mobile-ui/skills/
 python3 scripts/validate.py
 ```
 
-بيتأكد إن الـ manifests سليمة، الـ frontmatter صح، الـ audit read-only فعلاً، الـ `$ARGUMENTS` موجود، وكل الروابط للملفات المشتركة شغالة.
+بيتأكد إن الـ manifests سليمة، والـ frontmatter ومتطلبات الـ audit المعلنة موجودة، والـ `$ARGUMENTS` موجود، وكل الروابط للملفات المشتركة شغالة. ده فحص هيكلي؛ مش إثبات إن كل host هيمنع التعديل أثناء التشغيل.
 
 ---
 

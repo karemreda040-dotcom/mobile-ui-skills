@@ -1,0 +1,29 @@
+$ swift test
+[0/1] Planning build
+Building for debugging...
+[0/2] Write swift-version--58304C5D6DBC2206.txt
+Build complete! (0.10s)
+Test Suite 'All tests' started at 2026-11-23 20:45:49.511.
+Test Suite 'NotificationSettingsPackageTests.xctest' started at 2026-11-23 20:45:49.511.
+Test Suite 'NotificationSettingsTests' started at 2026-11-23 20:45:49.511.
+Test Case '-[NotificationSettingsTests.NotificationSettingsTests testAccountTogglePersistsWithoutDiscardingCategoryChoices]' started.
+Test Case '-[NotificationSettingsTests.NotificationSettingsTests testAccountTogglePersistsWithoutDiscardingCategoryChoices]' passed (0.000 seconds).
+Test Case '-[NotificationSettingsTests.NotificationSettingsTests testCategoryAccessibilityHintIncludesTheCategoryName]' started.
+Test Case '-[NotificationSettingsTests.NotificationSettingsTests testCategoryAccessibilityHintIncludesTheCategoryName]' passed (0.000 seconds).
+Test Case '-[NotificationSettingsTests.NotificationSettingsTests testCategoryTogglePersistsSelection]' started.
+Test Case '-[NotificationSettingsTests.NotificationSettingsTests testCategoryTogglePersistsSelection]' passed (0.000 seconds).
+Test Case '-[NotificationSettingsTests.NotificationSettingsTests testRapidSynchronousUpdatesKeepTheLatestChoices]' started.
+Test Case '-[NotificationSettingsTests.NotificationSettingsTests testRapidSynchronousUpdatesKeepTheLatestChoices]' passed (0.000 seconds).
+Test Suite 'NotificationSettingsTests' passed at 2026-11-23 20:45:49.513.
+	 Executed 4 tests, with 0 failures (0 unexpected) in 0.001 (0.001) seconds
+Test Suite 'NotificationSettingsPackageTests.xctest' passed at 2026-11-23 20:45:49.513.
+	 Executed 4 tests, with 0 failures (0 unexpected) in 0.001 (0.001) seconds
+Test Suite 'All tests' passed at 2026-11-23 20:45:49.513.
+	 Executed 4 tests, with 0 failures (0 unexpected) in 0.001 (0.002) seconds
+◇ Test run started.
+↳ Testing Library Version: 1501
+↳ Target Platform: arm64e-apple-macos14.0
+✔ Test run with 0 tests in 0 suites passed after 0.001 seconds.
+Exit: 0
+$ xcrun swiftc -typecheck -target arm64-apple-ios17.0-simulator -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk Sources/NotificationSettings/NotificationSettingsScreen.swift
+Exit: 0

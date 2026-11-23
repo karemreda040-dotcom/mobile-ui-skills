@@ -1,0 +1,22 @@
+{
+  "scenario-2": {
+    "README.md": "1c6b86ac8ff04d21639a4b318bbb4380202fc5357befd547bca1898b39df0852",
+    "package.json": "8844aa883322edf45f54debaca5755590c2381abe51795d7a8917483dfb6396f",
+    "src/AppShell.tsx": "25ba13a3b0992f08d2e8643e5e9af1e0e44c47ead8f7f6bb676fe578a633097c",
+    "src/actions.mjs": "b5fc4f42a7533c9ca7f396fd3510935c99f0f8b93cf55669823ef895dc321ca0",
+    "src/screens/Home.tsx": "4adca712591eaf94879e7a10520d8eba497c5c2ecc0cd29b4b2134ef6c16e25e",
+    "src/theme.ts": "d55d68c631329ccc8b195738ad6acba323d1e4f4e5b9d962f3e9b04e3c27bdb5",
+    "tests/actions.test.mjs": "8e86fb9dcf13784ec73b7e459fbc77bc30310aa93bb20e1811321fc8bbf79ba9"
+  },
+  "scenario-5": {
+    "README.md": "1c6b86ac8ff04d21639a4b318bbb4380202fc5357befd547bca1898b39df0852",
+    "package.json": "93f676eabee8e5f2bf5a3e714f52b9f12edce2c8209299a1ec6640a1ee785bf3",
+    "src/AppShell.tsx": "25ba13a3b0992f08d2e8643e5e9af1e0e44c47ead8f7f6bb676fe578a633097c",
+    "src/actions.mjs": "b5fc4f42a7533c9ca7f396fd3510935c99f0f8b93cf55669823ef895dc321ca0",
+    "src/screens/Focus.tsx": "509f08573794911780badbec5bea90876de85bbd5190128282326fa93625667a",
+    "src/screens/Home.tsx": "d2702728273bc861b9f350777a7c7b8581e2827577c942122104b7bfcffed1de",
+    "src/screens/Profile.tsx": "7dbde2bc8ad115a3dbf8d372eae7a57fadfc38a87170f3f2e2ebff91223918c9",
+    "src/theme.ts": "d55d68c631329ccc8b195738ad6acba323d1e4f4e5b9d962f3e9b04e3c27bdb5",
+    "tests/actions.test.mjs": "8e86fb9dcf13784ec73b7e459fbc77bc30310aa93bb20e1811321fc8bbf79ba9"
+  }
+}

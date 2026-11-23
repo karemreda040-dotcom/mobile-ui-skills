@@ -1,0 +1,4 @@
+# Preserve captured evidence and licensed fixture text byte-for-byte.
+evals/**/*.log -whitespace
+evals/**/OFL.txt -whitespace
+evals/runs/2026-11-23/followup/rerun-android-harness/app/build.gradle.kts -whitespace

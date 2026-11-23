@@ -1,0 +1,17 @@
+Command: /Users/bdc/flutter/bin/flutter pub get --offline
+Exit: 0
+Result: Got dependencies.
+
+Command: /Users/bdc/flutter/bin/flutter test test/regression_baseline_test.dart
+Exit: 1
+
+Actual result summary:
+- failed account creation restores an actionable retry state: FAILED
+  - uncaught: Bad state: simulated service failure
+  - expected Arabic error text was not found: تعذر إنشاء الحساب. حاول مرة أخرى.
+- a pending submission does not invoke the service twice: PASSED
+- 320 by 568 at 2x text scale has no overflow on every step: FAILED
+  - step 1: A RenderFlex overflowed by 368 pixels on the bottom.
+  - primary action bottoms: step 1 = 912.0, step 2 = 976.0, step 3 = 927.0 (viewport bottom = 568.0)
+
+Flutter test final summary: 1 passed, 2 failed.

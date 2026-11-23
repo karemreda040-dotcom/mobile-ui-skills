@@ -1,0 +1,12 @@
+$ /Users/bdc/flutter/bin/flutter analyze
+Analyzing rerun-1...                                            
+No issues found! (ran in 0.6s)
+Exit: 0
+$ /Users/bdc/flutter/bin/flutter test --reporter expanded
+00:00 +0: loading /private/var/folders/l0/cjq1p9zs2_1gc_c5ntp19rs00000gn/T/mobile-ui-evaluation-fxrm3nvx/rerun-1/test/onboarding_test.dart
+00:00 +0: moves through Arabic steps and calls only the local boundary
+00:00 +1: a delayed failure keeps the final step and offers retry
+00:00 +2: a pending request prevents duplicate account-start calls
+00:00 +3: all steps retain a reachable CTA at 320x568 and 2x text scale
+00:00 +4: All tests passed!
+Exit: 0

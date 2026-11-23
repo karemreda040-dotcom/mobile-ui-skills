@@ -103,3 +103,4 @@
 - Does the screen adapt to tablet/foldable widths?
 - Does TalkBack announce purpose and state correctly?
 - Is RTL behavior correct?
+- If compilation is unavailable, verify uncertain public Compose symbols against the installed SDK or current official docs; report the source as uncompiled rather than integration-ready.

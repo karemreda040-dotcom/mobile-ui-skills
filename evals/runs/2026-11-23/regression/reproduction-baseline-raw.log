@@ -1,0 +1,126 @@
+Resolving dependencies...
+Downloading packages...
+  clock 1.1.2 (1.1.3 available)
+  matcher 0.12.19 (0.12.20 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.0 (1.19.0 available)
+  stack_trace 1.12.1 (1.12.2 available)
+  test_api 0.7.11 (0.7.15 available)
+  vector_math 2.2.0 (2.4.4 available)
+Got dependencies!
+7 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading /private/var/folders/l0/cjq1p9zs2_1gc_c5ntp19rs00000gn/T/mobile-ui-evaluation-fxrm3nvx/repro-onboarding/test/regression_baseline_test.dart
+00:00 +0: failed account creation restores an actionable retry state
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: simulated service failure
+
+When the exception was thrown, this was the stack:
+#0      _ThrowingService.beginAccountCreation (file:///private/var/folders/l0/cjq1p9zs2_1gc_c5ntp19rs00000gn/T/mobile-ui-evaluation-fxrm3nvx/repro-onboarding/test/regression_baseline_test.dart:89:5)
+#1      _OnboardingPageState._advance (package:aman_onboarding/main.dart:75:26)
+#2      _InkResponseState.handleTap (package:flutter/src/material/ink_well.dart:1224:21)
+#3      GestureRecognizer.invokeCallback (package:flutter/src/gestures/recognizer.dart:345:24)
+#4      TapGestureRecognizer.handleTapUp (package:flutter/src/gestures/tap.dart:758:11)
+#5      BaseTapGestureRecognizer._checkUp (package:flutter/src/gestures/tap.dart:383:5)
+#6      BaseTapGestureRecognizer.handlePrimaryPointer (package:flutter/src/gestures/tap.dart:314:7)
+#7      PrimaryPointerGestureRecognizer.handleEvent (package:flutter/src/gestures/recognizer.dart:721:9)
+#8      PointerRouter._dispatch (package:flutter/src/gestures/pointer_router.dart:97:12)
+#9      PointerRouter._dispatchEventToRoutes.<anonymous closure> (package:flutter/src/gestures/pointer_router.dart:140:9)
+#10     _LinkedHashMapMixin.forEach (dart:_compact_hash:772:13)
+#11     PointerRouter._dispatchEventToRoutes (package:flutter/src/gestures/pointer_router.dart:138:18)
+#12     PointerRouter.route (package:flutter/src/gestures/pointer_router.dart:128:7)
+#13     GestureBinding.handleEvent (package:flutter/src/gestures/binding.dart:528:19)
+#14     GestureBinding.dispatchEvent (package:flutter/src/gestures/binding.dart:498:22)
+#15     RendererBinding.dispatchEvent (package:flutter/src/rendering/binding.dart:473:11)
+#16     GestureBinding._handlePointerEventImmediately (package:flutter/src/gestures/binding.dart:437:7)
+#17     GestureBinding.handlePointerEvent (package:flutter/src/gestures/binding.dart:394:5)
+#18     TestWidgetsFlutterBinding.handlePointerEventForSource.<anonymous closure> (package:flutter_test/src/binding.dart:1570:42)
+#19     TestWidgetsFlutterBinding.withPointerEventSource (package:flutter_test/src/binding.dart:1580:11)
+#20     TestWidgetsFlutterBinding.handlePointerEventForSource (package:flutter_test/src/binding.dart:1570:5)
+#21     WidgetTester.sendEventToBinding.<anonymous closure> (package:flutter_test/src/widget_tester.dart:869:15)
+#24     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#25     WidgetTester.sendEventToBinding (package:flutter_test/src/widget_tester.dart:868:27)
+#26     TestGesture.up.<anonymous closure> (package:flutter_test/src/test_pointer.dart:587:26)
+#29     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#30     TestGesture.up (package:flutter_test/src/test_pointer.dart:580:27)
+#31     WidgetController.tapAt.<anonymous closure> (package:flutter_test/src/controller.dart:1155:21)
+<asynchronous suspension>
+#32     TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#33     main.<anonymous closure> (file:///private/var/folders/l0/cjq1p9zs2_1gc_c5ntp19rs00000gn/T/mobile-ui-evaluation-fxrm3nvx/repro-onboarding/test/regression_baseline_test.dart:14:5)
+<asynchronous suspension>
+#34     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#35     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+
+The test description was:
+  failed account creation restores an actionable retry state
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:00 +0 -1: failed account creation restores an actionable retry state [E]
+  Test failed. See exception logs above.
+  The test description was: failed account creation restores an actionable retry state
+  
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test (but after the test had completed):
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "تعذر إنشاء الحساب. حاول مرة أخرى.": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#0      fail (package:matcher/src/expect/expect.dart:187:31)
+#1      _expect (package:matcher/src/expect/expect.dart:182:3)
+#2      expect (package:matcher/src/expect/expect.dart:65:3)
+#3      expect (package:flutter_test/src/widget_tester.dart:473:18)
+#4      main.<anonymous closure> (file:///private/var/folders/l0/cjq1p9zs2_1gc_c5ntp19rs00000gn/T/mobile-ui-evaluation-fxrm3nvx/repro-onboarding/test/regression_baseline_test.dart:17:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+  Test failed. See exception logs above.
+  The test description was: failed account creation restores an actionable retry state
+  
+00:00 +0 -1: a pending submission does not invoke the service twice
+00:00 +1 -1: 320 by 568 at 2x text scale has no overflow on every step
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: empty
+  Actual: [
+            'step 1: A RenderFlex overflowed by 368 pixels on the bottom.',
+            'step 1: primary action bottom was 912.0',
+            'step 2: primary action bottom was 976.0',
+            'step 3: primary action bottom was 927.0'
+          ]
+overflow or off-screen primary action
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///private/var/folders/l0/cjq1p9zs2_1gc_c5ntp19rs00000gn/T/mobile-ui-evaluation-fxrm3nvx/repro-onboarding/test/regression_baseline_test.dart:66:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///private/var/folders/l0/cjq1p9zs2_1gc_c5ntp19rs00000gn/T/mobile-ui-evaluation-fxrm3nvx/repro-onboarding/test/regression_baseline_test.dart line 66
+The test description was:
+  320 by 568 at 2x text scale has no overflow on every step
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:00 +1 -2: 320 by 568 at 2x text scale has no overflow on every step [E]
+  Test failed. See exception logs above.
+  The test description was: 320 by 568 at 2x text scale has no overflow on every step
+  
+00:00 +1 -2: Some tests failed.
+
+Failing tests:
+  /private/var/folders/l0/cjq1p9zs2_1gc_c5ntp19rs00000gn/T/mobile-ui-evaluation-fxrm3nvx/repro-onboarding/test/regression_baseline_test.dart: 320 by 568 at 2x text scale has no overflow on every step
+  /private/var/folders/l0/cjq1p9zs2_1gc_c5ntp19rs00000gn/T/mobile-ui-evaluation-fxrm3nvx/repro-onboarding/test/regression_baseline_test.dart: failed account creation restores an actionable retry state

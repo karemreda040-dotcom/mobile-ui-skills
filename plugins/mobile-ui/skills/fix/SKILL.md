@@ -60,6 +60,7 @@ Then edit the code — unless the user explicitly asked for plan-only.
 ### 3. Fix
 
 - Replace arbitrary literals with semantic tokens where the repetition justifies it.
+- Resolve each role to the existing semantic token's current value. Do not replace it with a fallback preference unless an observed defect or the user requested a redesign; report why when you do.
 - Reuse or improve shared components instead of duplicating variants.
 - If the same problem appears repeatedly, fix the token or shared component — not ten one-off patches.
 - Prefer small, coherent diffs.

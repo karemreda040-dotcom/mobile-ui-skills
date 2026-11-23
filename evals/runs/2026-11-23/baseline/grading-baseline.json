@@ -1,0 +1,338 @@
+{
+  "baseline_commit": "e1a7a8100ff0e53921bee002847f056877816b3b",
+  "method": "Independent source/spec review. Scores are 0=missing/contradictory, 1=partial, 2=clear. Evidence level is distinct from a score; no source assertion is treated as runtime proof.",
+  "raw_score": 71,
+  "maximum_score": 88,
+  "percent": 80.68,
+  "status": "final",
+  "blocker_violations": [
+    {
+      "scenario": 1,
+      "requirement": "Invents product claims or fake data as fact.",
+      "evidence": "scenario-1/lib/main.dart:64-65 presents an unprovided privacy/data-minimization promise (\"\u0646\u0637\u0644\u0628 \u0641\u0642\u0637 \u0645\u0627 \u062a\u062d\u062a\u0627\u062c\u0647\") as product fact rather than a marked placeholder."
+    }
+  ],
+  "scenarios": [
+    {
+      "id": 1,
+      "score": 15,
+      "maximum": 18,
+      "criteria": [
+        {
+          "id": "S1.1",
+          "score": 2,
+          "evidence": "source",
+          "detail": "main.dart:91-96 declares RTL and directional padding/alignment."
+        },
+        {
+          "id": "S1.2",
+          "score": 2,
+          "evidence": "source+typechecked",
+          "detail": "main.dart:27 and 154-160 select Cairo and 1.6 body line height; pubspec.yaml:17-22 registers bundled font."
+        },
+        {
+          "id": "S1.3",
+          "score": 1,
+          "evidence": "source",
+          "detail": "main.dart:52-66 is otherwise finance-specific, but :64-65 states an unprovided privacy/data-minimization promise as fact instead of a marked placeholder."
+        },
+        {
+          "id": "S1.4",
+          "score": 2,
+          "evidence": "source+widget-tested",
+          "detail": "main.dart:163-175 has one filled primary action per step."
+        },
+        {
+          "id": "S1.5",
+          "score": 2,
+          "evidence": "source",
+          "detail": "main.dart:163-167 sets the primary control to 52 logical pixels; Material text controls supply their platform minimums."
+        },
+        {
+          "id": "S1.6",
+          "score": 1,
+          "evidence": "source+widget-tested",
+          "detail": "main.dart:94 uses SafeArea and the original test exercises 1.5x/360x640, but independent reproduction at 320x568 and 2x puts every primary action off-screen (bottoms 912/976/927 vs 568) and reports a 368px RenderFlex overflow on step 1."
+        },
+        {
+          "id": "S1.7",
+          "score": 2,
+          "evidence": "source",
+          "detail": "main.dart uses plain Material surfaces and an icon circle, without gradients/glass/cards."
+        },
+        {
+          "id": "S1.8",
+          "score": 2,
+          "evidence": "source",
+          "detail": "main.dart:113-116 isolates the progress fraction as LTR."
+        },
+        {
+          "id": "S1.9",
+          "score": 1,
+          "evidence": "source+widget-tested",
+          "detail": "main.dart:74-80 has retained-size loading and a success snackbar, but awaits without catch. Independent reproduction confirms a throwing service yields uncaught StateError with no actionable Arabic retry/error UI."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "score": 9,
+      "maximum": 10,
+      "criteria": [
+        {
+          "id": "S2.1",
+          "score": 1,
+          "evidence": "source/spec",
+          "detail": "scenario-2-response.md:49-56 identifies weakened scanning and recommends a coherent list, but never plainly determines whether hierarchy must be reorganized before restyling."
+        },
+        {
+          "id": "S2.2",
+          "score": 2,
+          "evidence": "source/spec",
+          "detail": "response.md:41-73 cites exact elevations, shadow values, alternating radii, off-scale gaps, and gradient literals from fixture Home.tsx:10-13."
+        },
+        {
+          "id": "S2.3",
+          "score": 2,
+          "evidence": "source/spec",
+          "detail": "response.md:18-22 and 52-56 recommend accessible rows plus named shared tokens/components."
+        },
+        {
+          "id": "S2.4",
+          "score": 2,
+          "evidence": "source/spec",
+          "detail": "response.md:78 identifies supplied static records and does not invent metrics."
+        },
+        {
+          "id": "S2.5",
+          "score": 2,
+          "evidence": "source/spec",
+          "detail": "response.md:7-39 audits target size/contrast and :75-79 covers device accessibility/states while scenario-2 fixture hashes remain preserved."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "score": 14,
+      "maximum": 16,
+      "criteria": [
+        {
+          "id": "S3.1",
+          "score": 2,
+          "evidence": "source+typechecked",
+          "detail": "NotificationSettingsView.swift:29-64 uses Form, Section, Toggle and navigation title."
+        },
+        {
+          "id": "S3.2",
+          "score": 2,
+          "evidence": "source+typechecked",
+          "detail": "SwiftUI Form/Text controls and system text styles preserve Dynamic Type."
+        },
+        {
+          "id": "S3.3",
+          "score": 2,
+          "evidence": "source",
+          "detail": "Native Form toggles and Button retain standard accessible hit areas."
+        },
+        {
+          "id": "S3.4",
+          "score": 2,
+          "evidence": "source+typechecked",
+          "detail": "lines 30-61 group content in native Sections, no custom cards."
+        },
+        {
+          "id": "S3.5",
+          "score": 1,
+          "evidence": "source+typechecked",
+          "detail": "lines 32-47 disable child toggles, but turning the parent off destructively clears each stored category choice rather than preserving preferences through a temporary pause."
+        },
+        {
+          "id": "S3.6",
+          "score": 2,
+          "evidence": "source+typechecked",
+          "detail": "Native Toggle labels/states plus master accessibility hint at lines 32-35; failure UI is textual."
+        },
+        {
+          "id": "S3.7",
+          "score": 2,
+          "evidence": "source",
+          "detail": "No custom glass/card content exists."
+        },
+        {
+          "id": "S3.8",
+          "score": 1,
+          "evidence": "source+typechecked",
+          "detail": "lines 54-75 visibly retry failures, but .task(id: settings) cancellation plus the saving guard can drop a rapid latest edit while a prior save is in flight."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "score": 11,
+      "maximum": 16,
+      "criteria": [
+        {
+          "id": "S4.1",
+          "score": 1,
+          "evidence": "source-unverified",
+          "detail": "Material 3 components/theme APIs are intended, but CheckoutAddressScreen.kt:24 imports nonexistent lowercase androidx.compose.material3.dropdownMenuItem, preventing compilation."
+        },
+        {
+          "id": "S4.2",
+          "score": 1,
+          "evidence": "source-unverified",
+          "detail": "dp, phone/IME keyboard behavior and Material controls are present (lines 37, 138-141, 174-191), but no Compose autofill API is implemented and build cannot be verified."
+        },
+        {
+          "id": "S4.3",
+          "score": 2,
+          "evidence": "source-unverified",
+          "detail": "Persistent labels and field-specific supporting errors are implemented at lines 100-107 and 130-163; Continue stays enabled except while submitting."
+        },
+        {
+          "id": "S4.4",
+          "score": 1,
+          "evidence": "source-unverified",
+          "detail": "Country comes from a caller catalog and phone/postal attempt ContentOrLtr, but unconditional postal presence validation (lines 195-199) cannot accommodate locales/countries where it is optional, and no locale formatting is implemented."
+        },
+        {
+          "id": "S4.5",
+          "score": 2,
+          "evidence": "source-unverified",
+          "detail": "safeDrawingPadding, imePadding and vertical scrolling at lines 80-87."
+        },
+        {
+          "id": "S4.6",
+          "score": 1,
+          "evidence": "source-unverified",
+          "detail": "Submitting and Failure states are designed at lines 54-58 and 165-190, but the failure live-region call is source-invalid: liveRegion is a semantics property, not Modifier.liveRegion(...)."
+        },
+        {
+          "id": "S4.7",
+          "score": 2,
+          "evidence": "source-unverified",
+          "detail": "The CTA validates rather than being disabled for invalid fields; disabled only during labeled saving."
+        },
+        {
+          "id": "S4.8",
+          "score": 1,
+          "evidence": "source-unverified",
+          "detail": "Native Material controls help, but the intended live region at lines 165-171 is invalid Compose API and the file cannot compile."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "score": 10,
+      "maximum": 14,
+      "criteria": [
+        {
+          "id": "S5.1",
+          "score": 2,
+          "evidence": "source/spec",
+          "detail": "response.md:5-7 inventories prior 40/44/46 heights, 14/full/6 radii and 17 padding; fixture diff corroborates it."
+        },
+        {
+          "id": "S5.2",
+          "score": 1,
+          "evidence": "source",
+          "detail": "theme.ts:3-5 creates semantic geometry tokens, but there is no reusable component variant abstraction."
+        },
+        {
+          "id": "S5.3",
+          "score": 1,
+          "evidence": "source",
+          "detail": "Screens share one named minimum-height token, not named button sizes/variants."
+        },
+        {
+          "id": "S5.4",
+          "score": 2,
+          "evidence": "source",
+          "detail": "Screen route/analytics calls remain intact; npm test independently verifies only the Node action contract, not native widget feedback."
+        },
+        {
+          "id": "S5.5",
+          "score": 1,
+          "evidence": "source/spec",
+          "detail": "The focused screen changes preserve brand/content/identifiers, but theme.radius.control was changed from existing 8 to 12 (fixtures/scenario-5/src/theme.ts vs output), an unrelated visual-token change without evidence it was defective."
+        },
+        {
+          "id": "S5.6",
+          "score": 2,
+          "evidence": "source/spec",
+          "detail": "Four focused source changes normalize the three existing screens rather than rewriting them."
+        },
+        {
+          "id": "S5.7",
+          "score": 1,
+          "evidence": "source",
+          "detail": "npm test independently passed for two Node action tests, and response.md accurately reports missing configuration; no lint, typecheck, native build, or widget test was run."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "score": 12,
+      "maximum": 14,
+      "criteria": [
+        {
+          "id": "S6.1",
+          "score": 2,
+          "evidence": "source/spec",
+          "detail": "OperationsDashboard.kt:74-91 retains KPIs, alert, chart and timeline in a compact scroll layout."
+        },
+        {
+          "id": "S6.2",
+          "score": 2,
+          "evidence": "source/spec",
+          "detail": "KPI grid uses plain columns; the only Card is the decision-requiring alert (lines 103-110)."
+        },
+        {
+          "id": "S6.3",
+          "score": 1,
+          "evidence": "source/spec",
+          "detail": "RTL and isolated mixed content are present, but spec.md:41 selects old-to-new operational direction from right to left while chart x at OperationsDashboard.kt:146/153 increases physically left-to-right."
+        },
+        {
+          "id": "S6.4",
+          "score": 1,
+          "evidence": "source-unverified",
+          "detail": "The code attempts ContentOrLtr at lines 120 and 132, but textDirection is not a Text parameter (it belongs in TextStyle), so this source does not compile; bidi isolation also is not locale-aware number/date/unit formatting."
+        },
+        {
+          "id": "S6.5",
+          "score": 2,
+          "evidence": "source/spec",
+          "detail": "TrendChart contentDescription at line 139 and text status labels avoid color-only status."
+        },
+        {
+          "id": "S6.6",
+          "score": 2,
+          "evidence": "source/spec",
+          "detail": "lines 67-71 and 113-127 use a 360dp one-column breakpoint plus constrained width; spec documents 320dp/large text."
+        },
+        {
+          "id": "S6.7",
+          "score": 2,
+          "evidence": "source/spec",
+          "detail": "response.md:3 and source lines 34, 44-58 visibly label all sample data."
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "independently_run": [
+      "scenario-1 flutter analyze: passed",
+      "scenario-1 original flutter tests: passed (2 tests; rerun with local socket permission)",
+      "scenario-1 copied-fixture regression: 1 passed / 2 expected failures (uncaught final-submission error; 320x568 at 2x text scale overflow/off-screen CTA); baseline hashes preserved",
+      "scenario-3 swiftc typecheck: passed",
+      "scenario-5 npm test: passed (2 Node logic tests, not widget tests)",
+      "scenario-2 original fixture full hashes: unchanged",
+      "scenario-5 action helper, shell, identifiers, and Node action tests: unchanged; intentional screen/theme output changes were reviewed separately"
+    ],
+    "not_verified": [
+      "No rendered/emulator/device UI",
+      "No Compose compilation due absent project/toolchain; scenario-4 import defect found by source review"
+    ]
+  }
+}

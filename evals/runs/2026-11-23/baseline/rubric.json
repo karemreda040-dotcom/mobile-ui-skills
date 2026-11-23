@@ -1,0 +1,229 @@
+{
+  "baseline_commit": "e1a7a8100ff0e53921bee002847f056877816b3b",
+  "scenarios": [
+    {
+      "id": 1,
+      "title": "New Arabic onboarding screen",
+      "prompt": "Build a three-step Arabic onboarding flow in Flutter for a finance app. Use Cairo, a progress indicator, skip, next, and a final account-creation CTA.",
+      "mode": "create",
+      "criteria": [
+        {
+          "id": "S1.1",
+          "text": "RTL layout and semantic leading/trailing."
+        },
+        {
+          "id": "S1.2",
+          "text": "Cairo with readable line heights."
+        },
+        {
+          "id": "S1.3",
+          "text": "Realistic product-specific copy or clearly marked placeholders."
+        },
+        {
+          "id": "S1.4",
+          "text": "One primary action."
+        },
+        {
+          "id": "S1.5",
+          "text": "44/48 minimum targets."
+        },
+        {
+          "id": "S1.6",
+          "text": "Safe areas and text scaling."
+        },
+        {
+          "id": "S1.7",
+          "text": "No generic gradients, glass cards, or decorative blobs by default."
+        },
+        {
+          "id": "S1.8",
+          "text": "Correct mixed-direction treatment for numbers or currency."
+        },
+        {
+          "id": "S1.9",
+          "text": "Loading/error state for final submission."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Audit an AI-looking home screen",
+      "prompt": "Review this React Native home screen. It has eight white cards, a purple gradient header, pill buttons, and strong shadows. Make it feel like a real productivity app.",
+      "mode": "audit",
+      "criteria": [
+        {
+          "id": "S2.1",
+          "text": "Reports whether information hierarchy needs reorganization before restyling."
+        },
+        {
+          "id": "S2.2",
+          "text": "Identifies unnecessary cards, gradients, shadows, and radius variety with evidence."
+        },
+        {
+          "id": "S2.3",
+          "text": "Recommends a clearer primary action, sections, and reuse of existing tokens/components."
+        },
+        {
+          "id": "S2.4",
+          "text": "Does not invent fake productivity metrics."
+        },
+        {
+          "id": "S2.5",
+          "text": "Reviews accessibility and states without editing files."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "iOS settings detail screen",
+      "prompt": "Implement a SwiftUI notification-settings screen with account-level and category-level toggles.",
+      "mode": "create",
+      "criteria": [
+        {
+          "id": "S3.1",
+          "text": "Native navigation and controls."
+        },
+        {
+          "id": "S3.2",
+          "text": "System text styles/Dynamic Type."
+        },
+        {
+          "id": "S3.3",
+          "text": "44 pt targets."
+        },
+        {
+          "id": "S3.4",
+          "text": "Grouped content without unnecessary custom cards."
+        },
+        {
+          "id": "S3.5",
+          "text": "Clear dependency behavior between parent and child toggles."
+        },
+        {
+          "id": "S3.6",
+          "text": "VoiceOver labels and state."
+        },
+        {
+          "id": "S3.7",
+          "text": "No custom Liquid Glass content cards."
+        },
+        {
+          "id": "S3.8",
+          "text": "Safe handling of save/error state if persistence is asynchronous."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Android checkout form",
+      "prompt": "Build a Jetpack Compose checkout address screen with country, phone, postal code, and continue button.",
+      "mode": "create",
+      "criteria": [
+        {
+          "id": "S4.1",
+          "text": "Material 3 components and theme."
+        },
+        {
+          "id": "S4.2",
+          "text": "`dp`/`sp`, 48 dp targets, IME actions, autofill, correct keyboard types."
+        },
+        {
+          "id": "S4.3",
+          "text": "Persistent labels and recoverable inline validation."
+        },
+        {
+          "id": "S4.4",
+          "text": "Locale-aware field behavior."
+        },
+        {
+          "id": "S4.5",
+          "text": "Insets and keyboard handling."
+        },
+        {
+          "id": "S4.6",
+          "text": "Loading and submission error state."
+        },
+        {
+          "id": "S4.7",
+          "text": "No disabled CTA with no explanation."
+        },
+        {
+          "id": "S4.8",
+          "text": "TalkBack semantics."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Cross-platform design system refactor",
+      "prompt": "Clean up a React Native app where every screen uses slightly different spacing, button heights, and corner radii.",
+      "mode": "fix",
+      "criteria": [
+        {
+          "id": "S5.1",
+          "text": "Inspects and inventories existing values."
+        },
+        {
+          "id": "S5.2",
+          "text": "Creates semantic tokens and component variants."
+        },
+        {
+          "id": "S5.3",
+          "text": "Normalizes buttons to named sizes."
+        },
+        {
+          "id": "S5.4",
+          "text": "Preserves platform navigation and feedback."
+        },
+        {
+          "id": "S5.5",
+          "text": "Minimizes unrelated visual change."
+        },
+        {
+          "id": "S5.6",
+          "text": "Migrates incrementally rather than rewriting everything."
+        },
+        {
+          "id": "S5.7",
+          "text": "Runs lint/types/tests and reports material limitations."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Arabic data-heavy dashboard",
+      "prompt": "Design an Arabic mobile operations dashboard with KPIs, alerts, a timeline, and a small chart.",
+      "mode": "create",
+      "criteria": [
+        {
+          "id": "S6.1",
+          "text": "Maintains useful information density."
+        },
+        {
+          "id": "S6.2",
+          "text": "Does not turn every metric into a decorative card."
+        },
+        {
+          "id": "S6.3",
+          "text": "Uses Arabic RTL while evaluating chart direction by domain."
+        },
+        {
+          "id": "S6.4",
+          "text": "Locale-aware numbers, dates, and units."
+        },
+        {
+          "id": "S6.5",
+          "text": "Accessible chart summary and non-color status cues."
+        },
+        {
+          "id": "S6.6",
+          "text": "Responsive narrow-phone behavior."
+        },
+        {
+          "id": "S6.7",
+          "text": "Avoids fake data or labels it clearly."
+        }
+      ]
+    }
+  ]
+}

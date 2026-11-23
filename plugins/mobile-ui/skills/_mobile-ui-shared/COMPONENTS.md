@@ -23,6 +23,8 @@
 - A component variant must define size, padding, type role, icon behavior, radius, color, and states.
 - Interactive states commonly include: default, pressed, focused, hovered when relevant, disabled, loading, selected, error, and success.
 - Loading should preserve the component footprint to avoid layout shift.
+- For async actions, test delayed, failing, duplicate, and cancelled/disposed requests; a recoverable failure keeps the user's input or current step and offers retry.
+- Auto-save must not lose the latest committed edit during overlapping requests or cancellation. A master “pause” control preserves child preferences unless an explicit clear policy says otherwise.
 - Labels must remain understandable without relying on icon color.
 - Component content must survive longer localization strings and text scaling.
 - Never hide a critical action behind an unlabeled gesture.
@@ -108,6 +110,7 @@ Rules:
 - Provide show/hide behavior for passwords with a clear accessibility label.
 - Use input masks only when they help; do not make editing or pasting difficult.
 - Keep prefix, suffix, currency, country code, and unit behavior locale-aware.
+- Mark required and optional fields explicitly; validate phone, postal, and address requirements from the selected country's rules rather than applying one global rule.
 - Focus the first invalid field on submit and announce the error accessibly.
 - Avoid disabling the primary submit button without explaining what is missing; inline guidance is often clearer.
 - Keep the active field and next action visible above the keyboard.

@@ -56,13 +56,14 @@ Write a short implementation plan, then implement it. Do not stop at design advi
 - Use responsive constraints, safe areas, insets, and content-driven height.
 - Reuse components and variants; do not duplicate near-identical components.
 - Do not add a dependency for a component the existing stack can build cleanly.
-- Do not invent fake product data, features, claims, metrics, testimonials, or generic marketing copy to make a screen look full.
+- Do not invent fake product data, features, claims, metrics, testimonials, or generic marketing copy to make a screen look full. Clearly label any necessary demo or placeholder copy; do not make unverified privacy, security, or capability claims.
 
 If there is no codebase yet, produce implementation-ready specs — component structure, exact tokens, states, constraints, and platform assumptions — not vague inspiration.
 
 ### 5. Validate
 
 - Check hierarchy, alignment, spacing rhythm, typography, contrast, touch targets, states, RTL, text scaling, keyboard behavior, and small-screen overflow.
+- For critical async flows, verify pending, failure, and retry behavior, plus a narrow phone at at least 2× text scale.
 - Inspect the configured package scripts, `pubspec`, Gradle, or Xcode setup first; run only the applicable configured formatter, linter, type checker, tests, and safe build or preview commands. Report unavailable commands and their actual results.
 - When the app can actually be rendered, inspect the real screen or a screenshot and iterate. Never claim visual verification you did not perform.
 

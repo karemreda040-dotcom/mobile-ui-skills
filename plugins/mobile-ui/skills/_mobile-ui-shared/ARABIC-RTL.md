@@ -67,10 +67,11 @@ Validate ambiguous icons by meaning, not shape.
 ## Numbers, dates, and localization
 
 - Support the numeral system expected by the target locale; do not hardcode Western or Eastern Arabic digits globally.
+- Configure the framework's localization resources and delegates as well as layout direction. Bidi isolation controls string order; it does not replace locale-aware formatting.
 - Use locale-aware formatting for dates, times, currency, decimals, percentages, units, and plurals.
 - Respect regional calendar conventions.
 - Keep mathematical expressions, codes, and identifiers in their conventional direction.
-- Charts and timelines require domain-specific direction decisions; test with local users or product requirements.
+- Charts and timelines require domain-specific direction decisions; ensure declared axis order, plotted coordinates, and the semantic summary agree rather than mirroring purely for locale.
 - Allow Arabic copy expansion. Buttons, tabs, and fields must not depend on short English labels.
 - Use localized action verbs, not literal word-for-word translations.
 - Keep error and helper copy specific and easy to scan.

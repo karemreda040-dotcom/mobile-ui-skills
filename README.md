@@ -243,6 +243,12 @@ python3 scripts/validate.py
 
 ---
 
+## نتائج التقييم
+
+تفاصيل ستة سيناريوهات وحدود الدليل موجودة في [حزمة التقييم](evals/README.md)، مع [تقرير baseline](evals/runs/2026-11-23/baseline/grading-baseline.md) و[تقرير المتابعة النهائي](evals/runs/2026-11-23/followup/grading-followup.md). الإصلاحات اتوجّهت بمشاكل فعلية ظهرت في التقييم، مع الحفاظ على الـ visual tokens الموجودة في الـ fixtures حيث تم التحقق. النتيجة النهائية بعد المراجعة التصحيحية المقيّدة هي **83/88 (94.32%)** عبر 44 معيارًا؛ الاختبارات المسجلة موزعة على 4 Flutter widget tests و4 Swift tests و7 Android JVM logic tests و2 Node logic tests (17 اختبارًا إجمالًا، مش 17 UI tests)، بالإضافة إلى 3 حالات اختبار منفصلة للـ installer. لا تُقرأ هذه الحزمة كادعاء إحصائي لمعدل نجاح.
+
+---
+
 ## الترخيص
 
 MIT
